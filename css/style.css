@@ -32,3 +32,64 @@ p {
 .slider-top{
     min-height: 100vh;
 }
+
+@media (min-width: 1400px) {
+    .container {
+        max-width: 1140px;
+    }
+}
+* {
+    box-sizing: border-box;
+  }
+  .card {
+    top: 50px;
+    bottom: 50px;
+    position: relative;
+    width: 100%;
+    max-width: 700px;
+    min-height: 200px;
+    margin: 0 auto;
+    border-radius: 7px;
+    background: -webkit-linear-gradient(left bottom, #dd2476, #ff512f);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    transition: all ease 0.5s;
+  }
+  .card:hover {
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    transition: all ease 0.1s;
+  }
+  .card--content {
+    position: absolute;
+    width: 80%;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0);
+  }
+  .card h1 {
+    color: #fff;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  .card span {
+    margin-left: 6px;
+    color: #fff;
+    transform: translate3d(-50%, -50%, 0);
+  }
+  .card ul {
+    margin-top: 30px;
+    margin-left: 6px;
+    width: 100%;
+  }
+  .card ul li {
+    display: inline-block;
+    margin-right: 15px;
+  }
+  .card ul li a {
+    text-decoration: none;
+    color: #fff;
+  }
+  .card ul li i {
+    margin-right: 5px;
+    font-size: 120%;
+  }
