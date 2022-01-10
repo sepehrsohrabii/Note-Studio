@@ -100,7 +100,7 @@ class Visual {
     this.context = this.canvas.getContext("2d");
     this.canvasWidth = 0;
     this.canvasHeight = 0;
-    this.particleLength = 150;
+    this.particleLength = 10;
     this.particles = [];
     this.particleMaxRadius = 8;
 
