@@ -1,6 +1,30 @@
 $(document).ready(function() {
- 
+ /* Vertical Scroll Indicator - START */
+  var bar = document.getElementById("bar");
 
+  window.onscroll = function() {
+    scrollIndicator()
+  };
+
+  function scrollIndicator() {
+    var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    var scrolled = 100;
+    
+    if (height > 0) {
+      scrolled = (winScroll / height) * 100;
+    } 
+    
+    if (scrolled > 1) {
+      bar.classList.add("showBorder")
+    } else {
+      bar.classList.remove("showBorder");    
+    }
+      
+      
+    bar.style.height = scrolled + "%";
+  }
+  /* Vertical Scroll Indicator - END */
   $('.nonloop').owlCarousel({
     center: true,
     items:2,

@@ -11,10 +11,9 @@ body {
     margin: 0;
     padding: 0;
     -webkit-font-smoothing: antialiased;
+    height: 100vh; /* for slider canvas background */
 }
-#wrap {
-    position: relative;
-}
+
 h1 {
     font-size: 72px;
     font-weight: 600;
@@ -90,10 +89,6 @@ a {
   color: black;
   text-decoration: none;
 }
-body {
-  width: 100vw;
-  height: 100vh;
-}
 #canvas {
   display: block;
   width: 100%;
@@ -118,6 +113,58 @@ body {
   margin-bottom: 5%;
 }
 
+.nav-link {
+  color: black;
+}
+/* Vertical Scroll Indicator - START */
+.scrl-top {
+  -webkit-transform: rotate(
+    -90deg
+    ) translate(-50%,0);
+  -ms-transform: rotate(-90deg) translate(-50%,0);
+  transform: rotate(
+    -90deg
+    ) translate(-50%,0);
+
+  width: max-content;
+  margin-bottom: 65%;
+}
+#scrollIndicator {
+  height: 100vh;
+  display: flex;
+  position: fixed;
+  left: 0;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 10;
+}
+
+#scrollbar {
+  width: .15rem;
+  height: 15%;
+  padding: 0;
+  margin-left: -6%;
+  margin-top: 31%;
+  background-color: gray;
+  overflow: hidden;
+  border: none;
+  border-radius: 2rem;
+}
+
+#scrollbar #bar {
+  width: 100%;
+  height: 0%;
+  background-color: black;
+  border-radius: 2rem;
+  box-sizing: border-box;
+}
+
+#scrollbar #bar.showBorder {
+  border: none;  
+}
+
+/* Vertical Scroll Indicator - END */
 /* Under Slider Cards - START */
   .card {
     top: 50px;
@@ -433,7 +480,7 @@ body {
 
 .container-slider {
   height: 519px;
-  width: 643px;
+  width: 100%;
 }
 @keyframes border-move{
   0%{ border-radius:51% 49% 34% 66% / 39% 66% 34% 61%; }
