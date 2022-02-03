@@ -25,21 +25,25 @@ $(document).ready(function() {
     bar.style.height = scrolled + "%";
   }
   /* Vertical Scroll Indicator - END */
+  /* Case studies slider - START */
   $('.nonloop').owlCarousel({
     center: true,
-    items:2,
+    items:4,
     loop:false,
-    nav:true,
+    nav:false,
     margin:10,
+    
     responsive:{
         600:{
             items:4
         }
     }
   });
-
+  /* Case studies slider - END */
 });
 
+
+/* 4ta karti ke tekun mikhore - START */
 function homeCard(card) {
 
   if(card == 'card1'){
@@ -112,8 +116,9 @@ function homeCard(card) {
     });
 
 };
+/* 4ta karti ke tekun mikhore - END */
 
-
+/* Slider Background Canvas - START */
 function random(low, high) {
   return Math.random() * (high - low) + low;
 }
@@ -303,3 +308,4 @@ class Visual {
 }
 
 new Visual();
+/* Slider Background Canvas - END */

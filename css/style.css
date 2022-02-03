@@ -13,7 +13,7 @@ body {
     -webkit-font-smoothing: antialiased;
     height: 100vh; /* for slider canvas background */
 }
-
+/*
 h1 {
     font-size: 72px;
     font-weight: 600;
@@ -50,17 +50,13 @@ p {
     font-size: 20px;
     line-height: 32px;
 }
-header {
-  width: 85%;
-  margin-left: auto;
-  margin-right: auto;
-}
+*/
 .mt-6 {
   margin-top: 190px;
 }
 .slider-top{
     margin-top: 5%;
-    margin-bottom: 15%;
+    margin-bottom: 10%;
 }
 .txt-bg {
     padding-top: 10px!important;
@@ -96,9 +92,73 @@ a {
   top: 0;
   position: absolute;
 }
+span {
+  line-height: 1!important;
+}
+.btn-new {
+  background-color: #223f99;
+  border: none;
+  border-radius: 16px;
+  box-shadow: 0 .5rem 1.5rem rgba(34,63,153,.30)!important;
+}
+.btn-new:hover {
+  
+}
+.card-pic {
+  background: url(/img/close-up-man-writing-code-laptop.jpg);
+  min-height: 300px !important;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size:cover;
+  transition: all 0s;
+}
+.card-pic:hover{
+  background:linear-gradient(45deg, rgb(0 0 0/ 50%), rgb(255 241 0/ 50%)), url(/img/close-up-man-writing-code-laptop.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size:cover;
+  filter: blur(2px),;
+  -webkit-filter: blur(2px);
+}
 @media (min-width: 1400px) {
     .container {
         max-width: 1140px;
+    }
+    h1 {
+      font-size: 64px;
+      font-weight: 900;
+      color: #233d62;
+    }
+    h2{
+        font-size: 62px;
+        font-weight: 600;
+        color: #233d62;
+    }
+    h3 {
+        font-weight: 600;
+        line-height: 1.2em;
+        font-size: 52px;
+        color: #233d62;
+    }
+    h4 {
+        font-weight: 600;
+        line-height: 1.2em;
+        font-size: 41px;
+        color: #233d62;
+    }
+    h5 {
+      font-size: 20px;
+      color: #233d62;
+      font-weight: 900;
+    }
+    h6 {
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: .13em;
+    }
+    p {
+        font-size: 20px;
+        line-height: 32px;
     }
 }
 
@@ -171,8 +231,8 @@ a {
     bottom: 50px;
     position: relative;
     width: 100%;
-    max-width: 700px;
-    min-height: 400px;
+    max-width: 300px;
+    max-height: 300px;
     margin: 0 auto;
     border-radius: 7px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
@@ -506,7 +566,7 @@ a {
   position: absolute;
   opacity: 0;
   font-weight: 400;
-  font-family: "Pacifico", cursive;
+  /*font-family: "Pacifico", cursive;*/
   padding: 0 10px 0 5px;
   border-bottom: 3px solid #ddd;
   color: #123456;
