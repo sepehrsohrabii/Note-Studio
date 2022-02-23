@@ -110,15 +110,24 @@ span {
   background-position: center;
   background-repeat: no-repeat;
   background-size:cover;
-  transition: all 0s;
+  transition: all 0.3s;
 }
 .card-pic:hover{
   background:linear-gradient(45deg, rgb(0 0 0/ 50%), rgb(255 241 0/ 50%)), url(/img/close-up-man-writing-code-laptop.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size:cover;
+  transform: scale(1.05);
+  
   /*filter: blur(2px),;
   -webkit-filter: blur(2px);*/
+}
+.card-text{
+  display: none;
+  color: #fff;
+}
+.card-pic:hover > .card-text{
+  display: flex;
 }
 @media (min-width: 1400px) {
     .container {

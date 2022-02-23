@@ -27,11 +27,11 @@ $(document).ready(function() {
   /* Vertical Scroll Indicator - END */
   /* Case studies slider - START */
   $('.nonloop').owlCarousel({
-    center: true,
+    
     items:4,
     loop:false,
     nav:false,
-    margin:10,
+    margin:50,
     
     responsive:{
         600:{
