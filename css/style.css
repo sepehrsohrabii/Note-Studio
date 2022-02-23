@@ -123,11 +123,11 @@ span {
   -webkit-filter: blur(2px);*/
 }
 .card-text{
-  display: none;
+  transition: all 0.3s;
   color: #fff;
 }
 .card-pic:hover > .card-text{
-  display: flex;
+  transform: scale(1.05);
 }
 @media (min-width: 1400px) {
     .container {
@@ -322,18 +322,18 @@ span {
       0 5px 15px 0 rgba(37, 44, 97, 0.15);
     border-radius: 15px;
     margin: 8px;
-    padding: 10px 15px;
+    padding: 15px 20px;
     position: relative;
     z-index: 1;
     overflow: hidden;
-    min-height: 347px;
+    min-height: 337px;
     transition: 0.7s;
   }
   
   .solution_cards_box .solution_card:hover {
-    background: #309df0;
+    background: #808080;
     color: #fff;
-    transform: scale(1.1);
+    transform: scale(1.03);
     z-index: 9;
   }
   
@@ -347,7 +347,7 @@ span {
   }
   
   .solution_cards_box .solution_card:before {
-    content: "";
+    
     position: absolute;
     background: rgb(85 108 214 / 5%);
     width: 170px;
