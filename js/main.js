@@ -309,3 +309,52 @@ class Visual {
 
 new Visual();
 /* Slider Background Canvas - END */
+
+/* Writing text for slider - START */
+const workWith = ['Design.', 'Development.'];
+document.addEventListener("DOMContentLoaded", function() {
+  start();
+});
+
+const start = async _ => {
+  const _el = document.querySelector('.writing-text');
+    for (let index = 0; index < workWith.length; index++) {
+      const word = workWith[index]
+      const chars = word.split('');
+      await writeText(_el, chars);
+      
+      if(index == workWith.length - 1) index = -1;
+    }
+}
+
+function writeText(_el, chars) {
+  return new Promise(resolve => {
+    let write_interval = setInterval(() => {
+      const c = chars.shift();
+      _el.innerText += c;
+      if(chars.length == 0) {
+        clearInterval(write_interval);
+        setTimeout(() => {
+        let remove_interval = setInterval(() => {
+            const text = _el.innerText;
+            _el.innerText = text.substr(0, text.length - 1);
+            if(_el.innerText.length == 0) {
+              clearInterval(remove_interval);
+                setTimeout(() => resolve(), 200)
+            }
+          }, 150);
+        }, 1000)
+      }
+    }, 150);
+    
+  })
+}
+
+function removeText(_el) {
+  let write_interval = setInterval(() => {
+    const text = _el.innerText;
+    _el.innerText = text.substr(0, text.length - 1);
+    if(_el.innerText.length == 0) clearInterval(write_interval);
+  }, 150);
+}
+/* Writing text for slider - END */
