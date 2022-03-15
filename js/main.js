@@ -1,4 +1,5 @@
 $(document).ready(function() {
+
  /* Vertical Scroll Indicator - START */
   var bar = document.getElementById("bar");
 
@@ -41,82 +42,6 @@ $(document).ready(function() {
   });
   /* Case studies slider - END */
 });
-
-
-/* 4ta karti ke tekun mikhore - START */
-function homeCard(card) {
-
-  if(card == 'card1'){
-    var card = $('#card1');
-  } 
-  else if (card == 'card2'){
-    var card = $('#card2');
-  }
-  else if (card == 'card3') {
-    var card = $('#card3');
-  }
-  else if (card == 'card4'){
-    var card = $('#card4');
-  }
-  else if (card == 'card5'){
-    var card = $('#card5');
-  }
-  else {
-    var card = $('.card');
-  }
-    // Set sticker height + hover animation
-    var setCardStyle = function(){
-      
-      //var card = $('.card');
-      var cardWidth = card.width();
-      var cardHeight = card.height();
-      
-      // Set scale 
-      var cardContentScale = 1;
-      card.css('transform','translate3d(0,0,0) matrix3d(1,0,0.00,0.00,0.00,1,0.00,0,0,0,1,0,0,0,0,1) scale('+cardContentScale+')');
-      $('.card h1').css('font-size', cardContentScale*40+'px');
-      $('.card span').css('font-size', cardContentScale*16+'px');
-      $('.card li a').css('font-size', cardContentScale*16+'px');
-      
-      // Set height
-      card.height(cardHeight);
-      
-      // Generate hover effect
-      card
-        .mouseover(function(){
-          card.mousemove(function(e){
-            // Find mouse X position in card
-            mouseScreenPositionX = e.pageX;
-            cardLeftPosition = card.offset().left;
-            mousePosX = ((mouseScreenPositionX - cardLeftPosition)/cardWidth);
-            // Calculate maxtrix3d X value
-            matrix3dX = ((mousePosX/10000)*1.5)-0.0001;
-            
-            // Find mouse Y position in card
-            mouseScreenPositionY = e.pageY;
-            cardTopPosition = card.offset().top;
-            mousePosY = ((mouseScreenPositionY-cardTopPosition)/cardHeight);
-            // Calculate maxtrix3d Y value
-            matrix3dY = ((mousePosY/10000)*1.65)-0.0001;
-            
-            // Set CSS
-            card.css('transform', 'translate3d(0,-5px,0) matrix3d(1,0,0.00,'+matrix3dX+',0.00,1,0.00,'+matrix3dY+',0,0,1,0,0,0,0,1) scale('+cardContentScale*1.04+')');
-          });
-        })
-        .mouseout(function(){
-          // Unset CSS on mouseleave
-          card.css('transform','translate3d(0,0,0) matrix3d(1,0,0.00,0.00,0.00,1,0.00,0,0,0,1,0,0,0,0,1) scale('+cardContentScale+')');
-        });
-    }
-    
-    // Execute function
-    setCardStyle();
-    $(window).on('resize', function(){
-        setCardStyle();
-    });
-
-};
-/* 4ta karti ke tekun mikhore - END */
 
 /* Slider Background Canvas - START */
 function random(low, high) {
@@ -358,3 +283,44 @@ function removeText(_el) {
   }, 150);
 }
 /* Writing text for slider - END */
+/* circular scroll to top - start */
+(function($) { "use strict";
+$(document).ready(function(){"use strict";
+
+  //Scroll back to top
+  
+  var progressPath = document.querySelector('.progress-wrap path');
+  var pathLength = progressPath.getTotalLength();
+  progressPath.style.transition = progressPath.style.WebkitTransition = 'none';
+  progressPath.style.strokeDasharray = pathLength + ' ' + pathLength;
+  progressPath.style.strokeDashoffset = pathLength;
+  progressPath.getBoundingClientRect();
+  progressPath.style.transition = progressPath.style.WebkitTransition = 'stroke-dashoffset 10ms linear';		
+  var updateProgress = function () {
+    var scroll = $(window).scrollTop();
+    var height = $(document).height() - $(window).height();
+    var progress = pathLength - (scroll * pathLength / height);
+    progressPath.style.strokeDashoffset = progress;
+  }
+  updateProgress();
+  $(window).scroll(updateProgress);	
+  var offset = 50;
+  var duration = 550;
+  jQuery(window).on('scroll', function() {
+    if (jQuery(this).scrollTop() > offset) {
+      jQuery('.progress-wrap').addClass('active-progress');
+    } else {
+      jQuery('.progress-wrap').removeClass('active-progress');
+    }
+  });				
+  jQuery('.progress-wrap').on('click', function(event) {
+    event.preventDefault();
+    jQuery('html, body').animate({scrollTop: 0}, duration);
+    return false;
+  })
+  
+  
+});
+
+})(jQuery);
+/* circular scroll to top - end */

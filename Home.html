@@ -24,14 +24,6 @@
     
 </head>
 <body>
-  <div class="d-none d-lg-flex" id="scrollIndicator">
-    <div class="scrl-top">
-      <a href="#Top"><h6>Scroll to top</h6></a>
-    </div>
-    <div id="scrollbar">
-      <div id="bar"></div>
-    </div>
-  </div>
   <canvas id="canvas"></canvas>
     <div id="wrap">
         <header>
@@ -78,7 +70,11 @@
               </radialGradient>
               </defs>
             </svg>
-            
+            <div class="progress-wrap">
+              <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+                <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"/>
+              </svg>
+            </div>
               
             <div>
               <div class="container slider-top">
@@ -452,9 +448,20 @@
           <div class="banner2"></div>
           <div class="container mt-6">
             <div class="row">
-              <div class="col-md-6 col-ms-12">
+              <div class="col-md-6 col-ms-12 pe-5">
                 <h5>Shall we chat?</h5>
-                <h1>Let’s Talk</h1>
+                <h1 class="lts-talk">
+                  <span>L</span>
+                  <span>e</span>
+                  <span>t</span>
+                  <span>'</span>
+                  <span>s</span>
+                  &nbsp
+                  <span>T</span>
+                  <span>a</span>
+                  <span>l</span>
+                  <span>k</span>
+                </h1>
                 <h5 class="mt-5 mb-3">Services</h5>
                 <div class="footer-lb">
                   <a class="footer-link py-2 px-3" href="">Product Design</a>
@@ -471,7 +478,7 @@
                   <a class="footer-link py-2 px-3" href="">More than 20K</a>
                 </div>
               </div>
-              <div class="col-md-6 col-ms-12">
+              <div class="col-md-6 col-ms-12 ps-5">
                 <div>
                   <input class="form-input" type="name" name="" id="" placeholder="Your Full Name">
                   <input class="form-input" type="email" placeholder="Email">
@@ -484,11 +491,11 @@
           
           <div class="container pb-5 mt-5">
             <div class="row">
-              <div class="col-md-3 col-ms-12">
+              <div class="col-md-3 col-ms-12 pe-2">
                 <p>CONTACTS</p>
                 <h5 class="mb-0 mt-4">hello@notecreative.studio</h5>
               </div>
-              <div class="col-md-3 col-ms-12">
+              <div class="col-md-3 col-ms-12 pe-3">
                 <p>FOLLOW US</p>
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M11.999 7.37695C10.7726 7.37695 9.59651 7.86412 8.72934 8.73129C7.86217 9.59846 7.375 10.7746 7.375 12.001C7.375 13.2273 7.86217 14.4034 8.72934 15.2706C9.59651 16.1378 10.7726 16.625 11.999 16.625C13.2254 16.625 14.4015 16.1378 15.2687 15.2706C16.1358 14.4034 16.623 13.2273 16.623 12.001C16.623 10.7746 16.1358 9.59846 15.2687 8.73129C14.4015 7.86412 13.2254 7.37695 11.999 7.37695ZM11.999 15.004C11.2023 15.004 10.4382 14.6875 9.87485 14.1241C9.31149 13.5607 8.995 12.7967 8.995 12C8.995 11.2032 9.31149 10.4392 9.87485 9.8758C10.4382 9.31245 11.2023 8.99595 11.999 8.99595C12.7957 8.99595 13.5598 9.31245 14.1231 9.8758C14.6865 10.4392 15.003 11.2032 15.003 12C15.003 12.7967 14.6865 13.5607 14.1231 14.1241C13.5598 14.6875 12.7957 15.004 11.999 15.004Z" fill="#223F98"/>
@@ -508,7 +515,7 @@
                 </svg>
                   
               </div>
-              <div class="col-md-6 col-ms-12">
+              <div class="col-md-6 col-ms-12 ps-5">
                 <p class="fs-12">The text and graphic content of the website belongs to Note Studio and connot be used by other resources without our permission and without the link to the source.</p>
                 <div class="row">
                   <div class="col-md-6 col-ms-12">
@@ -531,5 +538,6 @@
     <script src="/js/main.js"></script>
     <script src="/js/owl.carousel.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    
 </body>
 </html>
