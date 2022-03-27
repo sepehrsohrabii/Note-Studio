@@ -19,6 +19,13 @@ body {
 }
 
 @media (min-width: 769px) {
+  .container {
+    padding-left: 70px !important;
+    padding-right: 70px !important;
+  }
+  .col {
+    padding: 0 !important;
+  }
     
   h1 {
     font-size: 56px;
@@ -173,7 +180,8 @@ a {
   background:radial-gradient(circle at 50% 50%, #223f98, rgba(0, 0, 0, 0) 103%), 
             linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
             url(/img/card1.png);
-  min-height: 330px !important;
+  min-height: 300px !important;
+  
   background-position: center;
   background-repeat: no-repeat;
   background-size:cover;
@@ -194,7 +202,7 @@ a {
 .card-pic2 {
   background:radial-gradient(53.63% 67.55% at 50% 50%, rgba(0, 0, 0, 0) 0%, rgba(250, 255, 15, 0.2) 100%), linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
             url(/img/card2.png);
-  min-height: 330px !important;
+  min-height: 300px !important;
   background-position: center;
   background-repeat: no-repeat;
   background-size:cover;
@@ -214,7 +222,7 @@ a {
 .card-pic3 {
   background:radial-gradient(52.5% 108.86% at 50% 50%, rgba(34, 63, 152, 0.5) 0%, rgba(0, 0, 0, 0) 100%), linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
             url(/img/card3.png);
-  min-height: 330px !important;
+  min-height: 300px !important;
   background-position: center;
   background-repeat: no-repeat;
   background-size:cover;
@@ -234,7 +242,7 @@ a {
 .card-pic4 {
   background:radial-gradient(65% 197.14% at 60.47% 50%, rgba(0, 0, 0, 0) 0%, rgba(255, 245, 8, 0.3) 100%), linear-gradient(0deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
             url(/img/card4.png);
-  min-height: 330px !important;
+  min-height: 300px !important;
   background-position: center;
   background-repeat: no-repeat;
   background-size:cover;
@@ -486,8 +494,7 @@ body.light .progress-wrap svg.progress-circle path {
   width: 200px;
   height: 200px;
   background-color: #F8EEA9;
-  animation-name: drop1;
-  transform: rotate(10deg) translate(-80px, 70px) scale(0.9);
+  
   box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
   border-radius: 4px;
 }
@@ -496,8 +503,7 @@ body.light .progress-wrap svg.progress-circle path {
   width: 200px;
   height: 200px;
   background-color: #BCD9ED;
-  animation-name: drop2;
-  transform: rotate(-15deg) translate(-20px, -60px) scale(0.9);
+  
   box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
   border-radius: 4px;
 }
@@ -506,10 +512,21 @@ body.light .progress-wrap svg.progress-circle path {
   width: 200px;
   height: 210px;
   background-color: #FFFBD7;
-  animation-name: drop3;
-  transform: rotate(5deg) translate(60px, 30px) scale(0.9);
+  
   box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
   border-radius: 4px;
+}
+.p1-animation {
+  animation-name: drop1;
+  transform: rotate(10deg) translate(-80px, 70px) scale(0.9);
+}
+.p2-animation {
+  animation-name: drop2;
+  transform: rotate(-15deg) translate(-20px, -60px) scale(0.9);
+}
+.p3-animation {
+  animation-name: drop3;
+  transform: rotate(5deg) translate(60px, 30px) scale(0.9);
 }
 
 @keyframes drop3 {

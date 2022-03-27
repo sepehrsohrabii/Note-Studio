@@ -1,31 +1,133 @@
 $(document).ready(function() {
-
- /* Vertical Scroll Indicator - START */
-  var bar = document.getElementById("bar");
-
-  window.onscroll = function() {
-    scrollIndicator()
-  };
-
-  function scrollIndicator() {
-    var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-    var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    var scrolled = 100;
-    
-    if (height > 0) {
-      scrolled = (winScroll / height) * 100;
-    } 
-    
-    if (scrolled > 1) {
-      bar.classList.add("showBorder")
-    } else {
-      bar.classList.remove("showBorder");    
-    }
+  /* LazyLoad - START */
+  gsap.registerPlugin(ScrollTrigger);
+  
+  gsap.from(".section-1", {
+    scrollTrigger: {
+      trigger: ".section-1",
+      toggleActions: "play reverse play reverse",
+    },
+    opacity: 0,
+    duration: 0.5
+  });
+  gsap.from(".section-2", {
+    scrollTrigger: {
+      trigger: ".section-2",
+      toggleActions: "play reverse play reverse",
+    },
+    opacity: 0,
+    duration: 1
+  });
+  gsap.from(".section-3", {
+    scrollTrigger: {
+      trigger: ".section-3",
+      toggleActions: "play reverse play reverse",
+    },
+    opacity: 0,
+    duration: 1
+  });
+  gsap.from(".section-4", {
+    scrollTrigger: {
+      trigger: ".section-4",
+      toggleActions: "play reverse play reverse",
+    },
+    opacity: 0,
+    duration: 1
+  });
+  gsap.from(".section-5", {
+    scrollTrigger: {
+      trigger: ".section-5",
+      toggleActions: "play reverse play reverse",
+    },
+    opacity: 0,
+    duration: 1
+  });
+  gsap.from(".section-6", {
+    scrollTrigger: {
+      trigger: ".section-6",
+      toggleActions: "play reverse play reverse",
+    },
+    opacity: 0,
+    duration: 1
+  });
+  gsap.from(".section-7", {
+    scrollTrigger: {
+      trigger: ".section-7",
+      toggleActions: "play reverse play reverse",
+    },
+    opacity: 0,
+    duration: 1
+  });
+  gsap.from(".section-8", {
+    scrollTrigger: {
+      trigger: ".section-8",
+      toggleActions: "play reverse play reverse",
+    },
+    opacity: 0,
+    duration: 1
+  });
+  gsap.from(".section-9", {
+    scrollTrigger: {
+      trigger: ".section-9",
+      toggleActions: "play reverse play reverse",
+    },
+    opacity: 0,
+    duration: 1
+  });
+  gsap.from(".section-10", {
+    scrollTrigger: {
+      trigger: ".section-10",
+      toggleActions: "play reverse play reverse",
+    },
+    opacity: 0,
+    duration: 1
+  });
+  gsap.from(".section-11", {
+    scrollTrigger: {
+      trigger: ".section-11",
+      toggleActions: "play reverse play reverse",
+    },
+    opacity: 0,
+    duration: 1
+  });
+  gsap.from(".section-12", {
+    scrollTrigger: {
+      trigger: ".section-12",
+      toggleActions: "play reverse play reverse",
+    },
+    opacity: 0,
+    duration: 1
+  });
+  gsap.from(".section-13", {
+    scrollTrigger: {
+      trigger: ".section-13",
+      toggleActions: "play reverse play reverse",
+    },
+    opacity: 0,
+    duration: 1
+  });
+  /* LazyLoad - END */
+  /* load papers when it comes in screen - START */
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      const p1 = entry.target.querySelector('#p-1');
+      const p2 = entry.target.querySelector('#p-2');
+      const p3 = entry.target.querySelector('#p-3');
+  
+      if (entry.isIntersecting) {
+        p1.classList.add('p1-animation');
+        p2.classList.add('p2-animation');
+        p3.classList.add('p3-animation');
+      return; // if we added the class, exit the function
+      }
+  
       
-      
-    bar.style.height = scrolled + "%";
-  }
-  /* Vertical Scroll Indicator - END */
+    });
+  });
+  
+  observer.observe(document.querySelector('.stack'));
+  /* load papers when it comes in screen - END */
+
   /* Case studies slider - START */
   $('.nonloop').owlCarousel({
     
@@ -324,3 +426,24 @@ $(document).ready(function(){"use strict";
 
 })(jQuery);
 /* circular scroll to top - end */
+
+/* lazy load - START 
+ScrollTrigger.config({limitCallbacks: true})
+
+document.querySelectorAll('.container').forEach(section => {
+  gsap.from(section.getElementsByTagName('div'), {
+    
+    y: 200,
+    autoAlpha: 0,
+    ease: "power3.inOut", 
+    duration: 1,
+    scrollTrigger: {
+      trigger: section,
+      start: '20% 75%',
+      toggleActions: 'play none play none',
+      once: true
+    },
+  });
+});
+/* laxy load - END */
+
