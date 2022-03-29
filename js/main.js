@@ -1,7 +1,6 @@
 $(document).ready(function() {
   /* LazyLoad - START */
   gsap.registerPlugin(ScrollTrigger);
-  
   gsap.from(".section-1", {
     scrollTrigger: {
       trigger: ".section-1",
@@ -16,7 +15,7 @@ $(document).ready(function() {
       toggleActions: "play reverse play reverse",
     },
     opacity: 0,
-    duration: 1
+    duration: 2
   });
   gsap.from(".section-3", {
     scrollTrigger: {
@@ -24,7 +23,7 @@ $(document).ready(function() {
       toggleActions: "play reverse play reverse",
     },
     opacity: 0,
-    duration: 1
+    duration: 2
   });
   gsap.from(".section-4", {
     scrollTrigger: {
@@ -32,7 +31,7 @@ $(document).ready(function() {
       toggleActions: "play reverse play reverse",
     },
     opacity: 0,
-    duration: 1
+    duration: 2
   });
   gsap.from(".section-5", {
     scrollTrigger: {
@@ -40,7 +39,7 @@ $(document).ready(function() {
       toggleActions: "play reverse play reverse",
     },
     opacity: 0,
-    duration: 1
+    duration: 2
   });
   gsap.from(".section-6", {
     scrollTrigger: {
@@ -48,7 +47,7 @@ $(document).ready(function() {
       toggleActions: "play reverse play reverse",
     },
     opacity: 0,
-    duration: 1
+    duration: 2
   });
   gsap.from(".section-7", {
     scrollTrigger: {
@@ -56,7 +55,7 @@ $(document).ready(function() {
       toggleActions: "play reverse play reverse",
     },
     opacity: 0,
-    duration: 1
+    duration: 2
   });
   gsap.from(".section-8", {
     scrollTrigger: {
@@ -64,7 +63,7 @@ $(document).ready(function() {
       toggleActions: "play reverse play reverse",
     },
     opacity: 0,
-    duration: 1
+    duration: 2
   });
   gsap.from(".section-9", {
     scrollTrigger: {
@@ -72,7 +71,7 @@ $(document).ready(function() {
       toggleActions: "play reverse play reverse",
     },
     opacity: 0,
-    duration: 1
+    duration: 2
   });
   gsap.from(".section-10", {
     scrollTrigger: {
@@ -80,7 +79,7 @@ $(document).ready(function() {
       toggleActions: "play reverse play reverse",
     },
     opacity: 0,
-    duration: 1
+    duration: 2
   });
   gsap.from(".section-11", {
     scrollTrigger: {
@@ -88,7 +87,7 @@ $(document).ready(function() {
       toggleActions: "play reverse play reverse",
     },
     opacity: 0,
-    duration: 1
+    duration: 2
   });
   gsap.from(".section-12", {
     scrollTrigger: {
@@ -96,7 +95,7 @@ $(document).ready(function() {
       toggleActions: "play reverse play reverse",
     },
     opacity: 0,
-    duration: 1
+    duration: 2
   });
   gsap.from(".section-13", {
     scrollTrigger: {
@@ -104,9 +103,89 @@ $(document).ready(function() {
       toggleActions: "play reverse play reverse",
     },
     opacity: 0,
-    duration: 1
+    duration: 2
+  });
+  gsap.from(".section-14", {
+    scrollTrigger: {
+      trigger: ".section-14",
+      toggleActions: "play reverse play reverse",
+    },
+    opacity: 0,
+    duration: 2
   });
   /* LazyLoad - END */
+  /* Navbar - START */
+  const html = document.documentElement;
+  const toggle = document.getElementById("toggle");
+  const circle = document.getElementById("bg-circle");
+  const navlinks = document.getElementById("navlinks")
+  const circleWidth = circle.clientWidth;
+
+  // Math calcul to get Height, Width, Diagonal and Circle Radius
+
+  const getVpdr = () => {
+    const vph = Math.pow(html.offsetHeight, 2); // Height
+    const vpw = Math.pow(html.offsetWidth, 2); // Width
+    const vpd = Math.sqrt(vph + vpw); // Diagonal
+    return vpd * 2 / circleWidth; // Circle radius
+  };
+
+  const openNavbar = () => {
+    const openTimeline = new TimelineMax();
+    openTimeline.to(".navbar", 0, { display: "flex" });
+    openTimeline.to("#bg-circle", 1.5, { scale: getVpdr(), ease: Expo.easeInOut });
+    openTimeline.staggerFromTo(".navbar ul li", 0.5, { y: 25, opacity: 0 }, { y: 0, opacity: 1 }, 0.1, 1);
+  };
+
+  const closeNavbar = () => {
+    const closeTimeline = new TimelineMax();
+    closeTimeline.staggerFromTo(".navbar ul li", 0.5, { y: 0, opacity: 1, delay: 0.5 }, { y: 25, opacity: 0 }, -0.1);
+    closeTimeline.to("#bg-circle", 1, { scale: 0, ease: Expo.easeInOut, delay: -0.5 });
+    closeTimeline.to(".navbar", 0, { display: "none" });
+  };
+
+  let isOpen = false;
+
+  toggle.onclick = function () {
+    if (isOpen) {
+      this.classList.remove("active");
+      closeNavbar();
+    } else {
+      this.classList.add("active");
+      openNavbar();
+    }
+    isOpen = !isOpen;
+  };
+  circle.onclick = function () {
+    if (isOpen) {
+      toggle.classList.remove("active");
+      closeNavbar();
+    } else {
+      toggle.classList.add("active");
+      closeNavbar();
+    }
+    isOpen = !isOpen;
+  };
+  navlinks.onclick = function () {
+    if (isOpen) {
+      toggle.classList.remove("active");
+      closeNavbar();
+    } else {
+      toggle.classList.add("active");
+      closeNavbar();
+    }
+    isOpen = !isOpen;
+  }
+
+
+  // On windows resize, recalcule circle radius and update
+
+  window.onresize = () => {
+    if (isOpen) {
+      gsap.to("#bg-circle", 1, { scale: getVpdr(), ease: Expo.easeInOut });
+    }
+  };
+  /* Navabr - END */
   /* load papers when it comes in screen - START */
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
@@ -120,8 +199,6 @@ $(document).ready(function() {
         p3.classList.add('p3-animation');
       return; // if we added the class, exit the function
       }
-  
-      
     });
   });
   
@@ -425,25 +502,5 @@ $(document).ready(function(){"use strict";
 });
 
 })(jQuery);
-/* circular scroll to top - end */
 
-/* lazy load - START 
-ScrollTrigger.config({limitCallbacks: true})
-
-document.querySelectorAll('.container').forEach(section => {
-  gsap.from(section.getElementsByTagName('div'), {
-    
-    y: 200,
-    autoAlpha: 0,
-    ease: "power3.inOut", 
-    duration: 1,
-    scrollTrigger: {
-      trigger: section,
-      start: '20% 75%',
-      toggleActions: 'play none play none',
-      once: true
-    },
-  });
-});
-/* laxy load - END */
 

@@ -27,25 +27,27 @@
   <canvas id="canvas"></canvas>
     <div id="wrap">
         <header>
-            <div class="container pt-3 pt-lg-5 d-flex align-items-stretch" id="Top">
-                <div class="col">
+            <div class="container pt-3 pt-lg-4 d-flex align-items-stretch" id="Top">
+                <div class="col align-self-center">
                   <img src="/img/Asset 1.svg" alt="" height="56px">
                 </div>
-                <div class="col-auto align-self-center d-none d-lg-block text-center">
-                    <ul class="nav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">SERVICES</a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link" href="#">PROJECTS</a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link" href="#">ABOUT</a>
-                        </li>
-                    </ul>
-                </div>
                 <div class="col align-self-center text-end">
-                  <button type="button" class="btn-new btn btn-primary px-4 py-2">Call us</button>
+                    <button class="navbar-toggle" id="toggle" type="button">
+                      <svg viewBox="0 0 100 100" width="80">
+                        <path class="line top" d="m 30,33 h 40 c 0,0 9.044436,-0.654587 9.044436,-8.508902 0,-7.854315 -8.024349,-11.958003 -14.89975,-10.85914 -6.875401,1.098863 -13.637059,4.171617 -13.637059,16.368042 v 40" />
+                        <path class="line middle"d="m 30,50 h 40" />
+                        <path class="line bottom" d="m 30,67 h 40 c 12.796276,0 15.357889,-11.717785 15.357889,-26.851538 0,-15.133752 -4.786586,-27.274118 -16.667516,-27.274118 -11.88093,0 -18.499247,6.994427 -18.435284,17.125656 l 0.252538,40" />
+                      </svg>
+                    </button>
+                    <div class="navbar">
+                      <ul id="navlinks">
+                        <li><a data-text="1" href="#">Home</a></li>
+                        <li><a data-text="2" href="#">Our Team</a></li>
+                        <li><a data-text="3"href="#">Projects</a></li>
+                        <li><a data-text="4" href="#contact">Contact</a></li>
+                      </ul>
+                    </div>
+                    <div id="bg-circle"></div>
                 </div>
             </div>
         </header>
@@ -293,7 +295,7 @@
                 </div>
                 
             </div>
-            <div class="bg-5">
+            <div class="section-14 bg-5">
               <div class="container mt-5 p-0">
                 <div class="row justify-content-center">
                   <div class="col-md-4 col-ms-12 align-self-center text-center">
@@ -435,7 +437,7 @@
             
         </main>
         
-        <footer class="section-13 pb-5">
+        <footer class="section-13 pb-5" id="contact">
           <svg class="bg-3" width="858" height="858" viewBox="0 0 858 858" fill="none" xmlns="http://www.w3.org/2000/svg">
             <circle cx="277.5" cy="580.5" r="580.5" fill="url(#paint0_radial_1588_3115)" fill-opacity="0.5"/>
             <defs>
@@ -536,6 +538,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/5.0.4/pixi.min.js"></script>
     
+    <script src="/js/bootstrap.bundle.min.js"></script>
     <script src="/js/owl.carousel.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
