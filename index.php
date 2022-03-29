@@ -1,3 +1,44 @@
+<?php
+
+    // Check if User Coming From A Request
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        
+        // Assign Variables
+        $user = filter_var($_POST['name'], FILTER_SANITIZE_STRING);
+        $mail = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
+        
+        $msg  = filter_var($_POST['message'], FILTER_SANITIZE_STRING);
+        
+        // Creating Array of Errors
+        $formErrors = array();
+        if (strlen($user) <= 3) {
+            $formErrors[] = 'Username Must Be Larger Than <strong>3</strong> Characters';
+        }
+        if (strlen($msg) < 10) {
+            $formErrors[] = 'Message Can\'t Be Less Than <strong>10</strong> Characters'; 
+        }
+        
+        // If No Errors Send The Email [ mail(To, Subject, Message, Headers, Parameters) ]
+        
+        $headers = 'From: ' . $mail . '\r\n';
+        $myEmail = 'info@creative.studio';
+        $subject = 'Contact Form';
+        
+        if (empty($formErrors)) {
+            
+            mail($myEmail, $subject, $msg, $headers);
+            
+            $user = '';
+            $mail = '';
+            
+            $msg = '';
+            
+            $success = '<div class="alert alert-success">We Have Recieved Your Message</div>';
+            
+        }
+        
+    }
+?>
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
@@ -481,11 +522,34 @@
                 </div>
               </div>
               <div class="col-md-6 col-ms-12 ps-5">
-                <form action="https://formspree.io/sepehr0sohrabi@gmail.com" method="POST">
-                  <input class="form-input" type="name" name="" id="" placeholder="Your Full Name">
-                  <input class="form-input" type="email" placeholder="Email">
-                  <textarea class="form-input" id="exampleFormControlTextarea1" rows="3" placeholder="Tell Us About Project"></textarea>
-                  <button class="form-button">Send Your Request</button>
+                <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST">
+
+                  <?php if (! empty($formErrors)) { ?>
+                  <div class="alert alert-danger alert-dismissible" role="start">
+                      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                      </button>
+                      <?php
+                          foreach($formErrors as $error) {
+                              echo $error . '<br/>';
+                          }
+                      ?>
+                  </div>
+                  <?php } ?>
+                  <?php if (isset($success)) { echo $success; } ?>
+
+                  <input class="form-input" type="name" id="name" name="name" placeholder="Your Full Name" 
+                          value="<?php if (isset($user)) { echo $user; } ?>" />
+                  
+                  <input class="form-input" type="email" id="email" name="email" placeholder="example@domain.com" 
+                          value="<?php if (isset($mail)) { echo $mail; } ?>">
+                  
+                  <textarea class="form-input" name="message" rows="3" placeholder="Tell Us About Project">
+                    <?php if (isset($msg)) { echo $msg; } ?>
+                  </textarea>
+                  
+                  <button class="form-button" id="submit" name="submit" type="submit" value="Send">Send Your Request</button>
+                  
                 </form>
               </div>
             </div>
