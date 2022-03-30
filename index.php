@@ -51,15 +51,12 @@
     <meta name="robots" content="max-image-preview:large">
     <meta itemprop="name" content="Note Creative Studio">
     <meta itemprop="url" content="https://notecreative.studio/">
-
     <title>Note Creative Studio</title>
     <link rel="icon" type="image/x-icon" href="img/Asset 1-svg.svg">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Work Sans:wght@200..700&display=swap">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="/css/bootstrap.min.css">
-    
     <link rel="stylesheet" href="/css/style.css">
-
     <link rel="stylesheet" href="/css/owl.carousel.min.css">
     <link rel="stylesheet" href="/css/owl.theme.default.min.css">
     
@@ -600,13 +597,10 @@
     </div>
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/5.0.4/pixi.min.js"></script>
-    
     <script src="/js/bootstrap.bundle.min.js"></script>
     <script src="/js/owl.carousel.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
-
+    <script src="/js/gsap.min.js"></script>
+    <script src="/js/ScrollTrigger.min.js"></script>
     <script src="/js/main.js"></script>
 </body>
 </html>
